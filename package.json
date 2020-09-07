@@ -1,0 +1,23 @@
+{
+  "name": "umore",
+  "version": "1.0.0",
+  "description": "autotests",
+  "main": "index.js",
+  "scripts": {
+    "open": "./node_modules/.bin/cypress open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuliyakc/uMore.git"
+  },
+  "author": "Yuliya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuliyakc/uMore/issues"
+  },
+  "homepage": "https://github.com/yuliyakc/uMore#readme",
+  "devDependencies": {
+    "cypress": "^5.1.0"
+  }
+}
