@@ -2,3 +2,5 @@ secret.*
 node_modules/
 *-lock.json
 .idea/
+.vscode/
+*.log
