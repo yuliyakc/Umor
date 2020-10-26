@@ -1,4 +1,9 @@
 const secretData = require("../../fixtures/secret.json");
+import * as utils from "../../fixtures/utils"
+
+// import {getRandomNum} from "../../fixtures/utils"
+// console.log(getRandomNum(9));
+
 
 describe('Cypress Tests', () => {
     beforeEach(() => {
@@ -36,7 +41,7 @@ describe('Cypress Tests', () => {
         const MAX_VALUE = 5;
         const MAX_QUEST = 9
         for (let i = 0; i < MAX_QUEST; i++) {
-            let num = getRandomNum(MAX_VALUE)
+            let num = utils.getRandomNum(MAX_VALUE)
             cy.get('.btn').eq(num).click()
             cy.get('.round-nav-btn').eq(0).click()
         }
@@ -44,9 +49,6 @@ describe('Cypress Tests', () => {
         cy.get('.buttons-wrapper').click()
     })  //END STRESS    
 });
-function getRandomNum(max_value) {
-    let res = Math.floor(Math.random() * Math.floor(max_value));
-    return res == 0? 1 : res;
-  }
+
 
 
