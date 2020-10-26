@@ -46,8 +46,16 @@ describe('Cypress Tests', () => {
             cy.get('.round-nav-btn').eq(0).click()
         }
         cy.wait(5000)
-        cy.get('.buttons-wrapper').click()
-    })  //END STRESS    
+        cy.get('.buttons-wrapper').click() 
+        //END STRESS
+        cy.get('.menu').click()
+        cy.get('a[href="/safe-circle"]').click()
+        cy.get('.btn.btn-light').click()
+        cy.get('input[type="email"]').type(secretData.test_user_login)
+        cy.contains("Submit").click()
+        cy.get('.yes-btn').contains("OK").click()
+        cy.contains("Invitation sent")
+    })      
 });
 
 
