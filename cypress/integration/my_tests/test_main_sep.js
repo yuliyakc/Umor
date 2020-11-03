@@ -4,6 +4,8 @@ import * as utils from "../../fixtures/utils"
 // import {getRandomNum} from "../../fixtures/utils"
 // console.log(getRandomNum(9));
 
+const LONG_WAIT = 5000;
+const SHORT_WAIT = 2000;
 
 describe('Cypress Tests', () => {
     beforeEach(() => {
@@ -55,8 +57,31 @@ describe('Cypress Tests', () => {
         cy.contains("Submit").click()
         cy.get('.yes-btn').contains("OK").click()
         cy.contains("Invitation sent")
-    })      
-});
+        cy.get('.back-btn').click()
+        cy.contains("Today")
+        cy.get('.menu').click()
+        cy.get('a[href="/settings"]').click()
+        cy.contains("Logout").click()
+        cy.contains("uMore")
+    }) // end main test
+        
+    it('Login for safe circle', () => {
+        cy.fixture('secret')
+            .then(data => {
+                //cy.viewport(360, 640)
+                cy.log(secretData)
+                cy.log('Go to Main page')
+                cy.visit(secretData.umore_url)
+                cy.get('input[name="email"]').type(secretData.test_user_login)
+                cy.get('input[name="password"]').type(secretData.test_user_pass)
+                cy.get('.continue-btn').click()
+                cy.get('.skip-btn').click()
+                cy.contains("YES").click()
+                cy.get('.yes-btn').click()
+                cy.wait(SHORT_WAIT)
+            })
+    }) // End Login
+});//End Cypress Tests
 
 
 
