@@ -79,6 +79,14 @@ describe('Cypress Tests', () => {
                 cy.contains("YES").click()
                 cy.get('.yes-btn').click()
                 cy.wait(SHORT_WAIT)
+                cy.server()
+                cy.route('https://rozetka.com.ua/').as('TestUrl')
+                cy.wait('@TestUrl').then(
+                    (response) => {
+                     console.log ('Response:',response)
+                     expect(response.status).to.be.equal(200)
+                    }
+                );
             })
     }) // End Login for safe circle
 });//End Cypress Tests
