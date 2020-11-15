@@ -80,7 +80,7 @@ describe('Cypress Tests', () => {
                 cy.get('.yes-btn').click()
                 cy.wait(SHORT_WAIT)
             })
-    }) // End Login
+    }) // End Login for safe circle
 });//End Cypress Tests
 
 
