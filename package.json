@@ -19,5 +19,8 @@
   "homepage": "https://github.com/yuliyakc/uMore#readme",
   "devDependencies": {
     "cypress": "^5.1.0"
+  },
+  "dependencies": {
+    "googleapis": "^39.2.0"
   }
 }
