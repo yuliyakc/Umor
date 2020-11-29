@@ -61,29 +61,6 @@ function getNewToken(oAuth2Client, callback) {
     });
 }
 
-/**
- * Lists the labels in the user's account.
- *
- * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
- */
-function listLabels(auth) {
-    const gmail = google.gmail({version: 'v1', auth});
-    gmail.users.labels.list({
-        userId: 'me',
-    }, (err, res) => {
-        if (err) return console.log('The API returned an error: ' + err);
-        const labels = res.data.labels;
-        if (labels.length) {
-            console.log('Labels:');
-            labels.forEach((label) => {
-                console.log(`- ${label.name}`);
-            });
-        } else {
-            console.log('No labels found.');
-        }
-    });
-}
-
 async function myTest(auth) {
     const gmail = google.gmail({version: 'v1', auth});
     gmail.users.messages.list({
@@ -96,15 +73,10 @@ async function myTest(auth) {
         if (response.data.messages.length > 0) {
             let messageId = response.data.messages[0].id;
             console.log('messageId: ' + messageId);
-            // const testId = '176010a25d6515bb';
-            // messageId = testId;
             let code = await getCode(gmail, messageId);
-            console.log("2 Код из письма: " + code);
             http_response.write(JSON.stringify({code: code}));
             http_response.end();
         }
-
-        //console.log(response.result.messages[0]);
     });
 }
 
@@ -145,11 +117,10 @@ async function getCode(gmail, emailId) {
         for (let key in headers) {
             if (headers[key].name === "Subject") {
                 let Subject = headers[key].value;
-                console.log('Subject: ' + Subject);
+                //console.log('Subject: ' + Subject);
                 let parts = Subject.split(' ');
                 let lastPart = parts[parts.length - 1];
                 code = lastPart;
-                //console.log("1 Код из письма: " + code);
             }
         }
     });
@@ -157,5 +128,4 @@ async function getCode(gmail, emailId) {
     return code;
 }
 
-//getData();
 module.exports = getData;
