@@ -10,3 +10,4 @@ cypress/fixtures/credentials.json
 cypress/plugins/credentials.json
 cypress/plugins/token.json
 credentials.json
+token.*

@@ -1,5 +1,10 @@
-import * as email from "../../fixtures/node_get_gmail"
 
 it('Get Code From Gmail', () => {
-    email.getData();
+    //email.getData();
+    cy.request('http://localhost:3000/get_code_from_gmail')
+        .then((response) => {
+            console.log(response.body);
+            cy.log("Code: " + response.body.code);
+        })
+
 });

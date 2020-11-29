@@ -6,6 +6,9 @@ npm install cypress --save-dev - установка cypress
 Установка Gmail API
 npm install googleapis@39 --save
 
+Автоматически добавляется в PATH в package.json scripts и не надо прописывать в пути
+./node_modules/.bin/
+
 
 
 

@@ -4,7 +4,8 @@
   "description": "autotests",
   "main": "index.js",
   "scripts": {
-    "open": "./node_modules/.bin/cypress open",
+    "open": "cypress open",
+    "node_server": "node service_server/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
