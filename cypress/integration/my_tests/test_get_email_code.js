@@ -5,6 +5,8 @@ it('Get Code From Gmail', () => {
         .then((response) => {
             console.log(response.body);
             cy.log("Code: " + response.body.code);
+            let code = response.body.code;
+            cy.get('#form').type(code);
         })
 
 });
