@@ -4,7 +4,8 @@
   "description": "autotests",
   "main": "index.js",
   "scripts": {
-    "open": "./node_modules/.bin/cypress open",
+    "open": "cypress open",
+    "node_server": "node service_server/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +21,8 @@
   "devDependencies": {
     "cypress": "^5.1.0",
     "cypress-image-snapshot": "^4.0.0"
+  },
+  "dependencies": {
+    "googleapis": "^39.2.0"
   }
 }
