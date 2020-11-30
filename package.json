@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/yuliyakc/uMore#readme",
   "devDependencies": {
-    "cypress": "^5.1.0"
+    "cypress": "^5.1.0",
+    "cypress-image-snapshot": "^4.0.0"
   }
 }
