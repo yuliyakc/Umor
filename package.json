@@ -23,6 +23,7 @@
     "cypress-image-snapshot": "^4.0.0"
   },
   "dependencies": {
+    "fs": "0.0.1-security",
     "googleapis": "^39.2.0"
   }
 }
